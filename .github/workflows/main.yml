@@ -4,8 +4,10 @@ name: Hello World
   push: {}
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: '01 - Display Word'
+    runs-on: [ubuntu-22.04]
     steps:
       - name: Build
         run: echo "Build World"
-        shell: bash
+      - name: Finish
+        run: echo "Complete Workflow"
