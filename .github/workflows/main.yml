@@ -14,7 +14,7 @@ on:
         default: 'The Octoverse'
 
 jobs:
-  Check OS:
+  CheckOS:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Welcome"
