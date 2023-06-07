@@ -14,14 +14,12 @@ on:
         default: 'The Octoverse'
 
 jobs:
-  system-check:
+  Check OS:
     runs-on: ubuntu-latest
     steps:
-      - name: Welcome
-        run: echo "Welcome"
+      - run: echo "Welcome"
       - name: Checking Disk Usage
-        run: df -h
+      - run: df -h
       - name: Checking CPU
-        run: |
-          lscpu
-          cat /proc/cpuinfo
+      - run: lscpu
+      - run: cat /proc/cpuinfo
