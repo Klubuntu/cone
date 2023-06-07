@@ -1,23 +1,17 @@
-name: GitHub Actions Demo 2
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: System Check
+
 on:
-  workflow_run:
-    workflows: [Build]
-    types: [completed]
+  workflow_dispatch:
 
 jobs:
-  on-success:
+  system-check:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - run: echo "Welcome"
+      - name: Welcome
+        run: echo "Welcome"
       - name: Checking Disk Usage
-      - run: df -h
+        run: df -h
       - name: Checking CPU
-      - run: lscpu
-      - run: cat /proc/cpuinfo
-  on-failure:
-    runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-    steps:
-      - run: echo 'The triggering workflow failed'
+        run: |
+          lscpu
+          cat /proc/cpuinfo
